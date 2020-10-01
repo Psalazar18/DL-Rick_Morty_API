@@ -2,7 +2,7 @@ import DetallesPersonajes from './detallesPersonajes.js'
 
 const llamadoPersonajes = (()=>{
 	let URL = 'https://rickandmortyapi.com/api/character/';
-	let character = document.getElementById('character');
+	let character = document.getElementById('resultado');
 	let response;
 	let miMetodoPrivado;
 
