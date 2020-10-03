@@ -1,17 +1,18 @@
 import DetallesPersonajes from './detallesPersonajes.js'
 
-const llamadoPersonajes = (()=>{
+const llamadoPersonajes = (() => {
 	let URL = 'https://rickandmortyapi.com/api/character/';
 	let character = document.getElementById('resultado');
 	let response;
 	let miMetodoPrivado;
 
-	getCharacter = async () => {
+	 let getCharacter = async () => {
 		console.log("test");
 	    try {
 	        let resultado = await fetch(URL);
-	        let json = await resultado.json();
-	        console.log(json);
+			let json = await resultado.json();
+			response = json;
+	        console.log(response);
 	    } catch (error) {
 	        console.log("error en api");
 	        if (error.code == "404"){
@@ -20,24 +21,6 @@ const llamadoPersonajes = (()=>{
 	        console.error(error);
 	    }
 	}
-
-	/*musicaPrivate = ( musica ) => {
-		//console.log( musica );
-		videoMusica.insertAdjacentHTML('afterBegin', musica);
-
-	};
-
-	peliculaPrivate = ( pelicula ) => {
-		//console.log( pelicula );
-		videoPelicula.insertAdjacentHTML('afterBegin', pelicula);
-
-	};
-
-	seriePrivate = ( serie ) => {
-		//console.log( serie );
-		videoSerie.insertAdjacentHTML('afterBegin', serie);
-	};*/
-
 
 	return {
 		/*insertarMusica: ( musica ) => {
@@ -55,4 +38,4 @@ const llamadoPersonajes = (()=>{
 
 })();
 
-llamadoPersonajes.getCharacter();
+llamadoPersonajes.getCharacter;

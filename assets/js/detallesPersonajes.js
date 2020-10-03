@@ -57,4 +57,8 @@ export default class DetallesPersonajes extends Personajes{
   set gender(newGender){
     return this.setGender(newGender);
   }
+
+ // infoGeneral(){
+ //   return ${this.getName};
+  //}
 }
