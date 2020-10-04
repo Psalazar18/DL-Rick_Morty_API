@@ -4,6 +4,7 @@ const llamadoPersonajes = (() => {
 	let URL = 'https://rickandmortyapi.com/api/character/';
 	let character = document.getElementById('resultado');
 	let response;
+	
 
 	 let getCharacter = async () => {
 	    try {
@@ -11,6 +12,7 @@ const llamadoPersonajes = (() => {
 			let json = await resultado.json();
 			response = json;
 			console.log(response);
+//			console.log(response.results.length);
 			return json;
 	    } catch (error) {
 	        console.log("error en api");
@@ -35,6 +37,7 @@ const llamadoPersonajes = (() => {
 	        console.error(error);
 	    }
 	}
+	
 
 	return {
 		mostrarPersonajes: async () => {
@@ -45,9 +48,9 @@ const llamadoPersonajes = (() => {
 				let detalle = new DetallesPersonajes(e.id, e.name, e.status, e.species, e.gender, e.created,
 					e.origin, e.location, e.episode);		
 				resultado.innerHTML += `
-				<div>
+				<div class="mr-5 d-flex">
 					<img src="${e.image}"></img>
-					${detalle.infoGeneral()};
+					${detalle.infoGeneral()}
 				</div>
 				`
 //				console.log(e.id);
@@ -55,6 +58,7 @@ const llamadoPersonajes = (() => {
 			
 		},
 	};
+
 })();
 
 let cleanCount = () => {
@@ -62,10 +66,9 @@ let cleanCount = () => {
 	let count = document.getElementById("cantidadPersonajes");
 	setTimeout(()=>{
 		spinner.classList.remove("spinner-border");
-//		cantidadPersonajes.innerHTML = response.length;
-		console.log(llamadoPersonajes.getCharacter)
+		cantidadPersonajes.innerHTML = "20";
+//		console.log(llamadoPersonajes.response.results.length)
 	},2000);
 };
-
 llamadoPersonajes.mostrarPersonajes();
 cleanCount();
