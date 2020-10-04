@@ -61,7 +61,7 @@ export default class DetallesPersonajes extends Personajes{
   infoGeneral(){
     return `
     <ul>
-      <li> ${this.getName}</li>
+      <li> ${this.getId}</li>
       <li> ${this.getSpecies}</li>
     </ul>
     `
