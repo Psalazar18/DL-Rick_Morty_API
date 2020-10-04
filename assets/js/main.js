@@ -12,7 +12,8 @@ const llamadoPersonajes = (() => {
 	        let resultado = await fetch(URL);
 			let json = await resultado.json();
 			response = json;
-	        console.log(response);
+			console.log(response);
+			return json;
 	    } catch (error) {
 	        console.log("error en api");
 	        if (error.code == "404"){
@@ -23,19 +24,19 @@ const llamadoPersonajes = (() => {
 	}
 
 	return {
-		/*insertarMusica: ( musica ) => {
-			musicaPrivate(musica);
+		mostrar: async () => {
+			const personajes = await getCharacter();
+			const respuestaPersonajes = await personajes.results;
+			respuestaPersonajes.forEach((e) => {
+				resultado.innerHTML += `
+				<div>
+					<img src="${e.image}"></img>
+				</div>
+				`;
+			});
 		},
-
-		insertarPelicula: ( pelicula ) => {
-			peliculaPrivate(pelicula);
-		},
-
-		insertarSerie: ( serie ) => {
-			seriePrivate(serie);
-		}*/
-	}
+	};
 
 })();
 
-llamadoPersonajes.getCharacter;
+llamadoPersonajes.mostrar();
